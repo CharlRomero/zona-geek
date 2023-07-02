@@ -16,11 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://zona-geek-production.up.railway.app",
-    ],
-    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+    origin: "http://localhost:5173",
   })
 );
 
