@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from "morgan";
+import cors from "cors";
 
 import itemRoute from "./routes/item.routes.js";
 import laptopRoute from "./routes/laptop.routes.js";
@@ -13,6 +14,7 @@ const app = express();
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors);
 
 app.use("/api", itemRoute);
 app.use("/api", laptopRoute);
