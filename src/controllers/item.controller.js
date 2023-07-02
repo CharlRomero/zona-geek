@@ -2,7 +2,7 @@ import { pool } from "../db.js";
 
 export const getItems = async (req, res) => {
   try {
-    const [rows] = await pool.query("SELECT * FROM item");
+    const [rows] = await pool.query("SELECT * FROM ITEM");
     res.json(rows);
   } catch (error) {
     return res.status(500).json({
@@ -13,7 +13,7 @@ export const getItems = async (req, res) => {
 
 export const getItem = async (req, res) => {
   try {
-    const [rows] = await pool.query("SELECT * FROM item WHERE item_id = ?", [
+    const [rows] = await pool.query("SELECT * FROM ITEM WHERE ITEM_ID = ?", [
       req.params.id,
     ]);
 
@@ -35,7 +35,7 @@ export const updateItem = async (req, res) => {
     const id = req.params.id;
 
     const [result] = await pool.query(
-      "UPDATE item SET item_stock = item_stock - 1 WHERE item_id = ?;",
+      "UPDATE ITEM SET ITEM_STOCK = ITEM_STOCK - 1 WHERE ITEM_ID = ?;",
       [id]
     );
 
@@ -44,7 +44,7 @@ export const updateItem = async (req, res) => {
         message: "Item not found",
       });
 
-    const [rows] = await pool.await("SELECT * FROM item WHERE item_id = ?", [
+    const [rows] = await pool.await("SELECT * FROM ITEM WHERE ITEM_ID = ?", [
       id,
     ]);
 

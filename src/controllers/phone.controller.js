@@ -2,7 +2,7 @@ import { pool } from "../db.js";
 
 export const getPhones = async (req, res) => {
   try {
-    const [rows] = await pool.query("SELECT * FROM phone NATURAL JOIN item");
+    const [rows] = await pool.query("SELECT * FROM PHONE NATURAL JOIN ITEM");
     res.json(rows);
   } catch (error) {
     return res.status(500).json({
@@ -14,7 +14,7 @@ export const getPhones = async (req, res) => {
 export const getPhone = async (req, res) => {
   try {
     const [rows] = await pool.query(
-      "SELECT * FROM phone NATURAL JOIN item WHERE item_id = ?",
+      "SELECT * FROM PHOME NATURAL JOIN ITEM WHERE ITEM_ID = ?",
       [req.params.id]
     );
 

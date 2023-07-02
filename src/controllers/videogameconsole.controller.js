@@ -3,7 +3,7 @@ import { pool } from "../db.js";
 export const getVideogameconsoles = async (req, res) => {
   try {
     const [rows] = await pool.query(
-      "SELECT * FROM videogameconsole NATURAL JOIN item"
+      "SELECT * FROM VIDEOGAMECONSOLE NATURAL JOIN ITEM"
     );
     res.json(rows);
   } catch (error) {
@@ -16,7 +16,7 @@ export const getVideogameconsoles = async (req, res) => {
 export const getVideogameconsole = async (req, res) => {
   try {
     const [rows] = await pool.query(
-      "SELECT * FROM videogameconsole NATURAL JOIN item WHERE item_id = ?",
+      "SELECT * FROM VIDEOGAMECONSOLE NATURAL JOIN ITEM WHERE ITEM_ID = ?",
       [req.params.id]
     );
 
