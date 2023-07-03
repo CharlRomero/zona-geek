@@ -3,7 +3,7 @@ import { pool } from "../db.js";
 export const getVideogameconsoles = async (req, res) => {
   try {
     const [rows] = await pool.query(
-      "SELECT ITEM_NAME, BRAN_NAME, ITEM_PRICE, ITEM_IMG, ITEM_STOCK, VID_STORAGE FROM VIDEOGAMECONSOLE NATURAL JOIN ITEM NATURAL JOIN BRAND"
+      "SELECT ITEM_ID, ITEM_NAME, BRAN_NAME, ITEM_PRICE, ITEM_IMG, ITEM_STOCK, VID_STORAGE FROM VIDEOGAMECONSOLE NATURAL JOIN ITEM NATURAL JOIN BRAND"
     );
     res.json(rows);
   } catch (error) {
@@ -16,7 +16,7 @@ export const getVideogameconsoles = async (req, res) => {
 export const getVideogameconsole = async (req, res) => {
   try {
     const [rows] = await pool.query(
-      "SELECT ITEM_NAME, BRAN_NAME, ITEM_PRICE, ITEM_IMG, ITEM_STOCK, VID_STORAGE FROM VIDEOGAMECONSOLE NATURAL JOIN ITEM NATURAL JOIN BRAND WHERE ITEM_ID = ?",
+      "SELECT ITEM_ID, ITEM_NAME, BRAN_NAME, ITEM_PRICE, ITEM_IMG, ITEM_STOCK, VID_STORAGE FROM VIDEOGAMECONSOLE NATURAL JOIN ITEM NATURAL JOIN BRAND WHERE ITEM_ID = ?",
       [req.params.id]
     );
 
